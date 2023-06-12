@@ -1,0 +1,244 @@
+// @import url(./theme/light.less);
+@import url(./theme/dark.less);
+@import url(./animateion.less);
+@import url(./vant/reset.less);
+* {
+  margin: 0%;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+div,
+span,
+input,
+p,
+span,
+em,
+i {
+  -webkit-touch-callout: none; /*系统默认菜单被禁用*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -khtml-user-select: none; /*早期浏览器*/
+  -moz-user-select: none; /*火狐*/
+  -ms-user-select: none; /*IE10*/
+  user-select: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+input {
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: transparent;
+  user-select: text !important;
+}
+button {
+  display: block;
+  background-color: transparent;
+  border: none;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  height: 100vh;
+  overflow: hidden;
+}
+body {
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+    Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB",
+    "Microsoft Yahei", sans-serif;
+  // overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+#app {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--bg-main);
+  color: var(--cl-body);
+}
+.safe-top {
+  .safe-top();
+}
+.safe-bottom {
+  .safe-bottom();
+}
+
+.rich-html {
+  font-size: 32px;
+  overflow: hidden;
+  line-height: 1.6;
+  img,
+  video {
+    max-width: 100%;
+  }
+}
+.line {
+  position: relative;
+  &-b {
+    position: relative;
+    &.two::after {
+      border-bottom-color: @line1;
+    }
+    &::after {
+      .line-b();
+    }
+  }
+  &-t {
+    position: relative;
+    &::after {
+      .line-t();
+    }
+    &.two::after {
+      border-bottom-color: @line1;
+    }
+  }
+  &-l {
+    &::after {
+      .line-l();
+    }
+    &.two::after {
+      border-left-color: @line1;
+    }
+  }
+  &-r {
+    &.two::after {
+      border-right-color: @line1;
+    }
+    &::after {
+      .line-r();
+    }
+  }
+}
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.clear {
+  zoom: 1;
+  &::after {
+    display: block;
+    width: 100%;
+    content: "";
+  }
+}
+.second {
+  color: @main;
+}
+.grey {
+  color: @cl-second;
+}
+.hairline {
+  &-bottom {
+    position: relative;
+    &::after {
+      .line-b();
+    }
+  }
+  &-top {
+    position: relative;
+    &::after {
+      .line-t();
+    }
+  }
+}
+.hairline {
+  &,
+  &-left,
+  &-right,
+  &-surround,
+  &-top-bottom {
+    position: relative;
+    &::after {
+      .hairline();
+    }
+  }
+  &-left::after {
+    border-left-width: @bd-w-base;
+  }
+  &-right::after {
+    border-right-width: @bd-w-base;
+  }
+  &,
+  &-unset {
+    &--top-bottom::after {
+      border-width: @bd-w-base 0;
+    }
+  }
+  &-surround::after {
+    border-width: @bd-w-base;
+  }
+}
+
+.flex {
+  display: flex;
+  &.w-full {
+    width: 100%;
+  }
+  &.items {
+    align-items: center;
+  }
+  &.column {
+    flex-direction: column;
+  }
+  &.wrap{
+    flex-wrap: wrap;
+  }
+  &.just {
+    justify-content: center;
+  }
+  &.just-between {
+    justify-content: space-between;
+  }
+  &.just-space {
+    justify-content: space-around;
+    justify-content: space-evenly;
+  }
+  .shrink,
+  &.shrink {
+    flex-shrink: 0;
+  }
+  &.grow {
+    flex-grow: 1;
+  }
+}
+
+.popup-warp {
+  border-radius: 16px;
+  padding: 45px 32px 32px;
+  background-position: right 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: @bg-match;
+  color: @body;
+  background-image: url(~@/assets/tmd2.png);
+  width: 584px;
+  font-size: 28px;
+  line-height: 40px;
+  .title {
+    line-height: 45px;
+    font-size: 32px;
+    color: #2fcbdf;
+    text-align: center;
+    font-weight: 600;
+  }
+  .close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 1;
+    font-size: 48px;
+    color: #999;
+  }
+}

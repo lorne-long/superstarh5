@@ -1,0 +1,101 @@
+@theme: light, dark;
+.clearfix() {
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+.scheme(@var,@light,@dark) {
+  .theme-light & {
+    @{var}: @light;
+  }
+  .theme-dark & {
+    @{var}: @dark;
+  }
+}
+.img(@name:"",@type:"png") {
+  background-image: url("~@/assets/2x/@{name}@2x.@{type}");
+  background-image: image-set(
+    url("~@/assets/2x/@{name}@2x.@{type}") 1x,
+    url("~@/assets/3x/@{name}@3x.@{type}") 2x,
+    url("~@/assets/4x/@{name}@4x.@{type}") 3x,
+    url("~@/assets/4x/@{name}@4x.@{type}") 4x
+  );
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.multi-ellipsis(@lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: @lines;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}
+.ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.hairline-common() {
+  position: absolute;
+  box-sizing: border-box;
+  content: " ";
+  pointer-events: none;
+}
+.hairline(@color: @line2) {
+  .hairline-common();
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  border: 0 solid @color;
+  transform: scale(0.5);
+}
+
+.line-t(@color: @line2, @left: 0, @right: 0) {
+  .hairline-common();
+  top: 0;
+  right: @right;
+  left: @left;
+  border-top: 1px solid @color;
+  transform: scaleY(0.5);
+}
+.line-b(@color: @line2, @left: 0, @right: 0) {
+  .hairline-common();
+  right: @right;
+  bottom: 0;
+  left: @left;
+  border-bottom: 1px solid @color;
+  transform: scaleY(0.5);
+}
+.line-l(@color: @line2,@top: 0,@left: 0) {
+  .hairline-common();
+  left: @left;
+  top: @top;
+  height: 100%;
+  border-left: 1px solid @color;
+  transform: scaleX(0.5);
+}
+.line-r(@color: @line2, @top: 0, @right: 0) {
+  .hairline-common();
+  right: @right;
+  top: @top;
+  height: 100%;
+  border-right: 1px solid @color;
+  transform: scaleX(0.5);
+}
+
+.safe-top(@val:0px) {
+  padding-top: @val;
+  padding-top: calc(@val + constant(safe-area-inset-top));
+  padding-top: calc(@val + env(safe-area-inset-top));
+}
+.safe-bottom(@val:0px) {
+  padding-bottom: @val;
+  padding-bottom: calc(@val + constant(safe-area-inset-bottom));
+  padding-bottom: calc(@val + env(safe-area-inset-bottom));
+}

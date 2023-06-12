@@ -1,0 +1,143 @@
+@bg-cl: #17006a;
+@bd: 3px solid #5000b7;
+.container {
+  border: @bd;
+  padding: 50px 0 0;
+  border-radius: 16px;
+  background-color: @bg-cl;
+  margin-top: 165px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    width: 100%;
+    height: 125px;
+    left: 0;
+    background-image: url(./img/title.png);
+    background-repeat: no-repeat;
+    background-size: auto 125px;
+  }
+  &.txt1::after {
+    background-image: url(./img/txt1.png);
+  }
+  &.txt1::after {
+    background-image: url(./img/txt2.png);
+  }
+  &.txt1::after {
+    background-image: url(./img/txt3.png);
+  }
+  &.txt1::after {
+    background-image: url(./img/txt4.png);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: -84px;
+    width: 100%;
+    height: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+  }
+}
+.star-boy {
+  padding: 0 24px;
+  background: #2a1d63 url(./img/bg.png) no-repeat;
+  background-position: center 0;
+  background-size: 100% auto;
+  min-height: 100%;
+  padding-top: 750px;
+  color: #e6d9fd;
+  line-height: 32px;
+  font-size: 28px;
+  color: #e6d9fd;
+  .bing-title {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    div {
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      line-height: 56px;
+      background: linear-gradient(to right, #7deee9, #e21756);
+      border-radius: 8px;
+      padding: 0 5%;
+      overflow: hidden;
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 96%;
+        left: 2%;
+        height: 100%;
+        background: #000;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+    }
+    span {
+      color: #22fffb;
+    }
+  }
+}
+.star-btn {
+  background-image: linear-gradient(to bottom, #ff72bc, #ea0072);
+  box-shadow: 0 8px 0 #810d47;
+  text-align: center;
+  line-height: 80px;
+  border-radius: 40px;
+  font-size: 32px;
+  width: 400px;
+  margin: 40px auto 32px;
+}
+
+.rule {
+  padding: 32px 40px;
+  line-height: 40px;
+  font-weight: 500;
+  &::before {
+    display: none;
+  }
+  margin-top: 40px;
+  .title {
+    position: relative;
+    font-size: 32px;
+    color: #ffffff;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    &::after,
+    &::before {
+      display: inline-block;
+      content: "";
+      width: 25px;
+      height: 26px;
+      margin: 0 24px;
+      background: url(./img/活动规则-右.png) no-repeat;
+      background-size: 100%;
+    }
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+}
+.footer {
+  color: #9491dc;
+  text-align: center;
+  padding: 48px 0;
+}
+
+i.coin {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: url(./img/星币-小.png) no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+}
